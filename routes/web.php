@@ -1,25 +1,22 @@
 <?php
 
+use App\Http\controllers\ReviewController;
+use App\Http\controllers\GenreController;
+use App\Http\controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/movies', function () {
-    return view('movies.index');
-});
+Route::get('/movies', [MovieController::class, 'index']);
 
 Route::get('/products', function () {
     return view('product');
 });
 
-Route::get('/genres', function () {
-    return view('Genres.index');
-});
+Route::get('/genres', [GenreController::class, 'index']);
 
-Route::get('/reviews', function () {
-    return view('Reviews.index');
-});
+Route::get('/reviews', [ReviewController::class, 'index']);
 
 

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +26,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/movies', MovieController::class);
+    Route::resource('/genres', GenreController::class);
+    Route::resource('/reviews', ReviewController::class);
 });
 
 require __DIR__.'/auth.php';

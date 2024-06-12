@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\controllers\ReviewController;
-use App\Http\controllers\GenreController;
-use App\Http\controllers\MovieController;
-use App\Http\controllers\ProductController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,13 +11,19 @@ Route::get('/', function () {
 
 
 
-
-Route::resource('/movies', MovieController::class);
-
-Route::resource('/products', ProductController::class);
+Route::get('/products', [ProductController::class, 'index']);
 
 
-Route::resource('/genres', GenreController::class);
+Route::get('/dashboard', function () {
+    return view('Welcome');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('/reviews', ReviewController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::resource('/movies', MovieController::class);
+});
+
+require __DIR__.'/auth.php';

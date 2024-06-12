@@ -64,7 +64,7 @@
                                 <label class="mb-3 block text-sm font-medium text-black dark:text-white"> Nama <span class="text-meta-1">*</span> </label>
                                 <input
                                     id="nama"
-                                    nama="nama"
+                                    name="nama"
                                     value="{{$genre->nama}}"
                                     type="text"
                                     placeholder="Enter anime title"
@@ -75,7 +75,7 @@
                                 <label class="mb-3 block text-sm font-medium text-black dark:text-white"> Description<span class="text-meta-1">*</span> </label>
                                 <textarea
                                     id="description"
-                                    nama="description"
+                                    name="description"
                                     rows="6"
                                     placeholder="Type anime description"
                                     class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"

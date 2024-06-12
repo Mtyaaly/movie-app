@@ -65,7 +65,7 @@
                                 <label class="mb-3 block text-sm font-medium text-black dark:text-white"> Movie <span class="text-meta-1">*</span> </label>
                                 <select
                                         id="movie_id"
-                                        nama="movie_id"
+                                        name="movie_id"
                                         class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                                         :class="isOptionSelected && 'text-black dark:text-white'"
                                         @change="isOptionSelected = true"
@@ -86,7 +86,7 @@
                                 </label>
                                 <input
                                     id="poster"
-                                    nama="poster"
+                                    name="poster"
                                     value="{{$review->poster}}"
                                     type="text"
                                     placeholder="Enter poster link"
@@ -109,7 +109,7 @@
                                 <label class="mb-3 block text-sm font-medium text-black dark:text-white"> Rating <span class="text-meta-1">*</span> </label>
                                 <input
                                     id="rating"
-                                    nama="rating"
+                                    name="rating"
                                     value="{{$review->rating}}"
                                     type="text"
                                     placeholder="Enter Rating"
@@ -120,7 +120,7 @@
                                 <label class="mb-3 block text-sm font-medium text-black dark:text-white"> Date <span class="text-meta-1">*</span> </label>
                                 <input
                                     id="date"
-                                    nama="date"
+                                    name="date"
                                     value="{{$review->date}}"
                                     type="date"
                                     placeholder="Enter Date Review"

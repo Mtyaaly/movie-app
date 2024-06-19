@@ -46,7 +46,7 @@
                 </div>
             </div>
         @endif
-
+        
         <!-- ====== Form Layout Section Start -->
         <div class="grid grid-cols-1 md:grid-cols-2">
             <div class="flex flex-col">
@@ -57,7 +57,7 @@
                             Movie Form
                         </h3>
                     </div>
-                    <form action="/movies" method="POST">
+                    <form enctype="multipart/form-data" action="/movies" method="POST">
                         @csrf
                         <div class="p-6.5">
                             <div class="mb-4.5">
@@ -73,7 +73,7 @@
 
                             <div class="mb-4.5">
                                 <label class="mb-3 block text-sm font-medium text-black"> Genre <span class="text-meta-1">*</span> </label>
-                                <div x-data="{ isOptionSelected: true }" class="relative z-20 bg-transparent">
+                                <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
                                     <select
                                         id="genre_id"
                                         name="genre_id"
@@ -85,9 +85,9 @@
                                             Type your genre
                                         </option>
                                         @foreach ($genres as $genre)
-                                            <option value="{{ $genre->id }}">{{ $genre->nama }}</option>
+                                            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                                         @endforeach
-                                    </select>
+                                        </select>
                                     <span class="absolute right-4 top-1/2 z-30 -translate-y-1/2">
                                         <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g opacity="0.8">
@@ -111,7 +111,7 @@
                                 <input
                                     id="poster"
                                     name="poster"
-                                    type="text"
+                                    type="file"
                                     placeholder="Enter poster link"
                                     class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter"
                                 />
